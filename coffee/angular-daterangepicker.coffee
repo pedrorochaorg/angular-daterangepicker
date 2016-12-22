@@ -141,6 +141,9 @@ picker.directive 'dateRangePicker', ($compile, $timeout, $parse, dateRangePicker
     $scope.$watch 'model.endDate', (n) ->
       _setEndDate(n)
 
+    $scope.$on 'daterangepicker.reset', () ->
+      el.val('')
+
     # Add validation/watchers for our min/max fields
     _initBoundaryField = (field, validator, modelField, optName) ->
       if attrs[field]

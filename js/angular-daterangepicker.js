@@ -164,6 +164,9 @@
         $scope.$watch('model.endDate', function(n) {
           return _setEndDate(n);
         });
+        $scope.$on('daterangepicker.reset', function() {
+          return el.val('');
+        });
         _initBoundaryField = function(field, validator, modelField, optName) {
           if (attrs[field]) {
             modelCtrl.$validators[field] = function(value) {
