@@ -130,9 +130,9 @@
         };
         _init = function() {
           var eventType, results;
-          el.daterangepicker(angular.extend(opts, {
+          el.daterangepicker(angular.extend({
             autoUpdateInput: false
-          }), function(start, end) {
+          }, opts), function(start, end) {
             return $scope.$apply(function() {
               return $scope.model = opts.singleDatePicker ? start : {
                 startDate: start,
@@ -141,9 +141,9 @@
             });
           });
           _picker = el.data('daterangepicker');
-          opts = angular.extend(opts, {
+          opts = angular.extend({
             autoUpdateInput: false
-          });
+          }, opts);
           if (!opts.autoUpdateInput) {
             el.val('');
           }
