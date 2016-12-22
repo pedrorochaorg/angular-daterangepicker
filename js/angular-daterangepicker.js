@@ -141,6 +141,12 @@
             });
           });
           _picker = el.data('daterangepicker');
+          opts = angular.extend(opts, {
+            autoUpdateInput: false
+          });
+          if (!opts.autoUpdateInput) {
+            el.val('');
+          }
           results = [];
           for (eventType in opts.eventHandlers) {
             results.push(el.on(eventType, function(e) {
